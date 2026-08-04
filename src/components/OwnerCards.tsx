@@ -53,6 +53,7 @@ export const OwnerCards: React.FC = () => {
                     <img
                       src={founder.image}
                       alt={founder.name}
+                      referrerPolicy="no-referrer"
                       className="w-full h-full object-cover rounded-full border-2 border-[#C5A059] shadow-md group-hover:scale-105 transition-transform"
                     />
 
