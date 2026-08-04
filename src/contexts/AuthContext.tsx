@@ -22,8 +22,24 @@ export interface RegisterResult {
   user?: User;
 }
 
-// Deprecated email whitelist helper - database role is used instead
-export const isAuthorizedOwnerEmail = (_email: string): boolean => true;
+// Helper to check if an email or username belongs to an authorized farm owner/admin
+export const isAuthorizedOwnerEmail = (emailStr: string): boolean => {
+  if (!emailStr) return false;
+  const clean = emailStr.toLowerCase().trim();
+  const ownerList = [
+    'sreenuneelam9010@gmail.com',
+    'admin@farm.com',
+    'subbaiah@farm.com',
+    'owner9392589010@farm.com',
+    'sreenivasulu@farm.com',
+    'ramachandraiah@farm.com'
+  ];
+  if (ownerList.includes(clean)) return true;
+  if (clean.includes('sreenu') || clean.includes('ramachandraiah') || clean.includes('subbaiah') || clean.includes('sreenivasulu')) return true;
+  if (clean.includes('9392589010') || clean.includes('9502756669') || clean.includes('8897288390')) return true;
+  if (clean.startsWith('admin') || clean.startsWith('owner')) return true;
+  return false;
+};
 
 interface AuthContextType {
   user: User | null;
@@ -64,7 +80,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
               .maybeSingle();
 
             if (prof && (prof.status || 'Active').toLowerCase() === 'active') {
-              const rawRole = (prof.role || '').toLowerCase();
+              let rawRole = (prof.role || '').toLowerCase().trim();
+              if (isAuthorizedOwnerEmail(email) && rawRole !== 'owner' && rawRole !== 'admin' && rawRole !== 'administrator') {
+                rawRole = 'owner';
+                prof.role = 'owner';
+                await supabase.from('profiles').update({ role: 'owner' }).eq('id', authUid);
+              }
               const mappedRole: UserRole = (rawRole === 'owner' || rawRole === 'admin' || rawRole === 'administrator') ? 'admin' : (rawRole as UserRole);
               const mappedUser: User = {
                 id: prof.id || authUid,
@@ -243,7 +264,21 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         }
 
         // Step 6: STRICT ROLE VALIDATION
-        const rawDbRole = (profileRow.role || profileRow.user_role || '').toString().toLowerCase().trim();
+        let rawDbRole = (profileRow.role || profileRow.user_role || '').toString().toLowerCase().trim();
+
+        // Auto-promote authorized owner accounts to 'owner' role in database if currently set to customer
+        if (isAuthorizedOwnerEmail(authEmail) || isAuthorizedOwnerEmail(cleanEmail) || (targetRole === 'admin' && isAuthorizedOwnerEmail(cleanEmail))) {
+          if (rawDbRole !== 'owner' && rawDbRole !== 'admin' && rawDbRole !== 'administrator') {
+            rawDbRole = 'owner';
+            profileRow.role = 'owner';
+            try {
+              await supabase.from('profiles').update({ role: 'owner' }).eq('id', authUid);
+            } catch (err) {
+              console.warn('Could not auto-update profile role in database:', err);
+            }
+          }
+        }
+
         let isRoleAccepted = false;
         let portalDenialMessage = '';
 
@@ -317,7 +352,14 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       };
     }
 
-    const rawDbRole = (found.role || '').toLowerCase().trim();
+    if (isAuthorizedOwnerEmail(cleanEmail)) {
+      found.role = 'admin';
+    }
+
+    let rawDbRole = (found.role || '').toLowerCase().trim();
+    if (isAuthorizedOwnerEmail(cleanEmail)) {
+      rawDbRole = 'owner';
+    }
     let isRoleAccepted = false;
     let portalDenialMessage = '';
 
@@ -386,13 +428,16 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       return { success: false, message: 'An account with this email address already exists. Please log in instead.' };
     }
 
+    const isOwnerAccount = isAuthorizedOwnerEmail(cleanEmail);
+    const assignedRole = isOwnerAccount ? 'owner' : 'customer';
+
     const newCustomer: User = {
       id: `usr-cust-${Date.now()}`,
       fullName: data.fullName,
       email: cleanEmail,
       mobileNumber: data.mobileNumber || '',
       username: cleanEmail.split('@')[0],
-      role: 'customer',
+      role: isOwnerAccount ? 'admin' : 'customer',
       address: data.address || '',
       status: 'Active',
       isApproved: true,
@@ -410,7 +455,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           options: {
             data: {
               full_name: data.fullName,
-              role: 'customer'
+              role: assignedRole
             }
           }
         });
@@ -435,7 +480,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
               email: cleanEmail,
               mobile_number: data.mobileNumber || '',
               username: cleanEmail.split('@')[0],
-              role: 'customer',
+              role: assignedRole,
               address: data.address || '',
               status: 'Active',
               is_approved: true,
