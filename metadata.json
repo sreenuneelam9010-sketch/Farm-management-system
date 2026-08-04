@@ -1,0 +1,6 @@
+{
+  "name": "Lakshmi Venkateshwara Sheep & Natu Kolla Farm",
+  "description": "Production-ready Farm Management Web Application for Lakshmi Venkateshwara Sheep & Natu Kolla Farm featuring RBAC, animal health tracking, worker tasks, inventory, finance analytics, and direct customer ordering.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
