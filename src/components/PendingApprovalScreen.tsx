@@ -1,9 +1,9 @@
 import React from 'react';
 import { User } from '../types';
 import { Clock, ShieldAlert, Phone, Home, RefreshCw, CheckCircle2 } from 'lucide-react';
-import founder1 from '../assets/founders/founder-1.jpg';
-import founder2 from '../assets/founders/founder-2.jpg';
-import founder3 from '../assets/founders/founder-3.jpg';
+import founder1 from '@/assets/founders/1.jpg';
+import founder2 from '@/assets/founders/2.jpg';
+import founder3 from '@/assets/founders/3.jpg';
 
 interface PendingApprovalScreenProps {
   pendingUser?: User | null;

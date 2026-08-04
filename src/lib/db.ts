@@ -19,9 +19,9 @@ import {
   PaymentSettings
 } from '../types';
 import { encryptText, decryptText } from './encryption';
-import founder1 from '../assets/founders/founder-1.jpg';
-import founder2 from '../assets/founders/founder-2.jpg';
-import founder3 from '../assets/founders/founder-3.jpg';
+import founder1 from '@/assets/founders/1.jpg';
+import founder2 from '@/assets/founders/2.jpg';
+import founder3 from '@/assets/founders/3.jpg';
 
 export const AUTHORIZED_OWNERS = [
   { name: 'Neelam Ramachandraiah', mobile: '9502756669', email: 'admin@farm.com' },

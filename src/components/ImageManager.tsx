@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { storageService, BUCKET_NAME, getFounderAvatarUrl } from '../lib/storage';
 import { OwnerProfile, GalleryImageItem } from '../types';
 
-import founder1 from '../assets/founders/founder-1.jpg';
-import founder2 from '../assets/founders/founder-2.jpg';
-import founder3 from '../assets/founders/founder-3.jpg';
+import founder1 from '@/assets/founders/1.jpg';
+import founder2 from '@/assets/founders/2.jpg';
+import founder3 from '@/assets/founders/3.jpg';
 import { isSupabaseConfigured } from '../lib/supabase';
 import { processFarmImage } from '../lib/imageProcessor';
 import { Image, Upload, Trash2, CheckCircle2, Shield, Database, RefreshCw, Edit3, ArrowUp, ArrowDown, Eye, Check, X, Layers, FileImage, Scissors, Maximize2, Sparkles } from 'lucide-react';

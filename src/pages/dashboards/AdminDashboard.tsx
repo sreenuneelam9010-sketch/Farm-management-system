@@ -28,9 +28,9 @@ import { WorkerLeaveManager } from '../../components/admin/WorkerLeaveManager';
 import { CustomerMessagesManager } from '../../components/admin/CustomerMessagesManager';
 import { AdminProfile } from '../../components/profile/AdminProfile';
 import { UserProfileModal } from '../../components/profile/UserProfileModal';
-import founder1 from '../../assets/founders/founder-1.jpg';
-import founder2 from '../../assets/founders/founder-2.jpg';
-import founder3 from '../../assets/founders/founder-3.jpg';
+import founder1 from '@/assets/founders/1.jpg';
+import founder2 from '@/assets/founders/2.jpg';
+import founder3 from '@/assets/founders/3.jpg';
 import { storageService } from '../../lib/storage';
 import { 
   exportAnimalsCSV, 

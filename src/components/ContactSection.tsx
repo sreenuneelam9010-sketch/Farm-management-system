@@ -3,7 +3,7 @@ import { Phone, MessageSquare, MapPin, Send, ExternalLink, CheckCircle, Loader2,
 import { db, FarmInfo } from '../lib/db';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import { ContactMessage } from '../types';
-import founder1 from '../assets/founders/founder-1.jpg';
+import founder1 from '@/assets/founders/1.jpg';
 
 export const ContactSection: React.FC = () => {
   const [farmInfo, setFarmInfo] = useState<FarmInfo>(() => db.getFarmInfo());
