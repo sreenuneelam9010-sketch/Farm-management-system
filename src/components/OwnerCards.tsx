@@ -5,23 +5,13 @@ import founder1 from '../assets/founders/founder-1.jpg';
 import founder2 from '../assets/founders/founder-2.jpg';
 import founder3 from '../assets/founders/founder-3.jpg';
 
-interface FounderData {
-  id: string;
-  name: string;
-  designation: string;
-  phone: string;
-  image: string;
-  fallback: string;
-}
-
-const FOUNDERS: FounderData[] = [
+const FOUNDERS = [
   {
     id: 'founder-1',
     name: 'Neelam Ramachandraiah',
     designation: 'Founder',
     phone: '+91 9502756669',
     image: founder1,
-    fallback: founder1,
   },
   {
     id: 'founder-2',
@@ -29,7 +19,6 @@ const FOUNDERS: FounderData[] = [
     designation: 'Founder',
     phone: '+91 8897288390',
     image: founder2,
-    fallback: founder2,
   },
   {
     id: 'founder-3',
@@ -37,7 +26,6 @@ const FOUNDERS: FounderData[] = [
     designation: 'Digital Operator',
     phone: '+91 9392589010',
     image: founder3,
-    fallback: founder3,
   },
 ];
 
@@ -58,23 +46,20 @@ export const OwnerCards: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {FOUNDERS.map((owner) => (
+          {FOUNDERS.map((founder) => (
             <div
-              key={owner.id}
+              key={founder.id}
               className="dark-glass-card rounded-2xl p-6 shadow-2xl transition-all duration-300 group transform hover:-translate-y-1 flex flex-col justify-between"
             >
               <div>
                 <div className="flex flex-col items-center text-center gap-4">
                   <div className="relative">
                     <img
-                      src={owner.image}
-                      alt={owner.name}
-                      onError={(e) => {
-                        const target = e.currentTarget;
-                        if (target.src !== owner.fallback) {
-                          target.src = owner.fallback;
-                        }
-                      }}
+                      src={founder.image}
+                      alt={founder.name}
+                      loading="eager"
+                      decoding="sync"
+                      onError={(e) => console.error('Image failed:', founder.image, e)}
                       className="w-32 h-32 rounded-full object-cover border-2 border-[#C5A059] shadow-md group-hover:scale-105 transition-transform"
                     />
 
@@ -85,13 +70,13 @@ export const OwnerCards: React.FC = () => {
 
                   <div>
                     <span className="text-[10px] font-black uppercase tracking-widest text-[#C5A059] bg-[#062C1E] px-2.5 py-1 rounded border border-[#C5A059]/40 whitespace-nowrap inline-block">
-                      {owner.designation}
+                      {founder.designation}
                     </span>
                     <h3 className="mt-2 text-xl font-serif-brand font-bold text-[#F2F2ED]">
-                      {owner.name}
+                      {founder.name}
                     </h3>
                     <p className="text-xs text-emerald-300/80 mt-1">
-                      {owner.designation}
+                      {founder.designation}
                     </p>
                   </div>
                 </div>
@@ -99,14 +84,14 @@ export const OwnerCards: React.FC = () => {
 
               <div className="mt-6 pt-4 border-t border-[#C5A059]/20 flex flex-col gap-2">
                 <div className="text-xs font-semibold text-[#F2F2ED] text-center">
-                  Phone: <span className="text-[#C5A059] font-bold">{owner.phone}</span>
+                  Phone: <span className="text-[#C5A059] font-bold">{founder.phone}</span>
                 </div>
                 <a
-                  href={`tel:${owner.phone.replace(/\s+/g, '')}`}
+                  href={`tel:${founder.phone.replace(/\s+/g, '')}`}
                   className="inline-flex items-center justify-center px-4 py-2.5 bg-[#C5A059] hover:bg-[#b38f48] text-slate-950 text-xs font-black uppercase tracking-wider rounded-xl shadow transition-colors w-full"
                 >
                   <Phone className="w-3.5 h-3.5 mr-2" />
-                  Call {owner.name}
+                  Call {founder.name}
                 </a>
               </div>
             </div>
@@ -116,3 +101,4 @@ export const OwnerCards: React.FC = () => {
     </section>
   );
 };
+
