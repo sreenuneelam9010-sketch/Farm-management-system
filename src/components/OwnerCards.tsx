@@ -57,10 +57,7 @@ export const OwnerCards: React.FC = () => {
                     <img
                       src={founder.image}
                       alt={founder.name}
-                      loading="eager"
-                      decoding="sync"
-                      onError={() => console.error("Image failed:", founder.image)}
-                      className="w-32 h-32 rounded-full object-cover border-2 border-[#C5A059] shadow-md group-hover:scale-105 transition-transform"
+                      className="w-[#8rem] h-[#8rem] rounded-full object-cover border-2 border-[#C5A059] shadow-md group-hover:scale-105 transition-transform"
                     />
 
                     <span className="absolute bottom-0 right-0 bg-[#C5A059] text-slate-950 p-1 rounded-full text-xs shadow z-10">

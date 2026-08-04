@@ -321,7 +321,6 @@ export const ImageManager: React.FC = () => {
                   src={owner.src}
                   alt={owner.name}
                   className="w-28 h-28 rounded-full object-cover border-4 border-emerald-600 shadow-md"
-                  onError={() => console.error("Image failed:", owner.src)}
                 />
               </div>
 
