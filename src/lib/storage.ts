@@ -21,6 +21,17 @@ export const FOUNDER_IMAGES: Record<string, string> = {
 };
 
 export function getFounderImageUrl(id: string, name: string, rawUrl?: string): string {
+  // Always map founder IDs/names to bundled founder assets
+  if (id === 'owner-1' || id === 'founder-1' || id === 'usr-admin-1' || (name && name.toLowerCase().includes('ramachandraiah'))) {
+    return founder1;
+  }
+  if (id === 'owner-2' || id === 'founder-2' || id === 'usr-admin-2' || (name && name.toLowerCase().includes('subbaiah'))) {
+    return founder2;
+  }
+  if (id === 'owner-3' || id === 'founder-3' || id === 'usr-admin-3' || (name && name.toLowerCase().includes('sreenivasulu')) || (name && name.toLowerCase().includes('sreenu'))) {
+    return founder3;
+  }
+
   // If user explicitly uploaded a new data:image or blob: URL during current session, keep it
   if (rawUrl && (rawUrl.startsWith('data:image/') || rawUrl.startsWith('blob:'))) {
     return rawUrl;
@@ -30,21 +41,14 @@ export function getFounderImageUrl(id: string, name: string, rawUrl?: string): s
   if (rawUrl && (rawUrl.startsWith('http://') || rawUrl.startsWith('https://')) && 
       !rawUrl.includes('ui-avatars.com') && 
       !rawUrl.includes('placeholder') && 
+      !rawUrl.includes('founders') && 
       !rawUrl.includes('1.jpeg') && 
       !rawUrl.includes('2.jpeg') && 
-      !rawUrl.includes('3.jpeg')) {
+      !rawUrl.includes('3.jpeg') && 
+      !rawUrl.includes('1.jpg') && 
+      !rawUrl.includes('2.jpg') && 
+      !rawUrl.includes('3.jpg')) {
     return rawUrl;
-  }
-
-  // Map to bundled founder assets
-  if (id === 'owner-1' || id === 'founder-1' || (name && name.toLowerCase().includes('ramachandraiah'))) {
-    return founder1;
-  }
-  if (id === 'owner-2' || id === 'founder-2' || (name && name.toLowerCase().includes('subbaiah'))) {
-    return founder2;
-  }
-  if (id === 'owner-3' || id === 'founder-3' || (name && name.toLowerCase().includes('sreenivasulu'))) {
-    return founder3;
   }
 
   return FOUNDER_IMAGES[id] || founder1;
