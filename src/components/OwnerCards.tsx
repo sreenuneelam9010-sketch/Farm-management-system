@@ -1,31 +1,27 @@
 import React from 'react';
 import { Phone, ShieldCheck, UserCheck } from 'lucide-react';
 
-import founder1 from "@/assets/founders/1.jpg";
-import founder2 from "@/assets/founders/2.jpg";
-import founder3 from "@/assets/founders/3.jpg";
-
 const FOUNDERS = [
   {
     id: 'founder-1',
     name: 'Neelam Ramachandraiah',
     designation: 'Founder',
     phone: '+91 9502756669',
-    image: founder1,
+    image: '/assets/founders/1.jpg',
   },
   {
     id: 'founder-2',
     name: 'Neelam Subbaiah',
     designation: 'Founder',
     phone: '+91 8897288390',
-    image: founder2,
+    image: '/assets/founders/2.jpg',
   },
   {
     id: 'founder-3',
     name: 'Neelam Sreenivasulu',
     designation: 'Digital Operator',
     phone: '+91 9392589010',
-    image: founder3,
+    image: '/assets/founders/3.jpg',
   },
 ];
 
@@ -53,11 +49,11 @@ export const OwnerCards: React.FC = () => {
             >
               <div>
                 <div className="flex flex-col items-center text-center gap-4">
-                  <div className="relative">
+                  <div className="relative w-32 h-32">
                     <img
                       src={founder.image}
                       alt={founder.name}
-                      className="w-[#8rem] h-[#8rem] rounded-full object-cover border-2 border-[#C5A059] shadow-md group-hover:scale-105 transition-transform"
+                      className="w-full h-full object-cover rounded-full border-2 border-[#C5A059] shadow-md group-hover:scale-105 transition-transform"
                     />
 
                     <span className="absolute bottom-0 right-0 bg-[#C5A059] text-slate-950 p-1 rounded-full text-xs shadow z-10">
