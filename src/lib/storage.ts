@@ -2,9 +2,9 @@ import { supabase, isSupabaseConfigured } from './supabase';
 import { OwnerProfile, GalleryImageItem } from '../types';
 import { processFarmImage, processProfileImage } from './imageProcessor';
 
-import founder1 from '@/assets/founders/1.jpg';
-import founder2 from '@/assets/founders/2.jpg';
-import founder3 from '@/assets/founders/3.jpg';
+const founder1 = '/assets/founders/1.jpg';
+const founder2 = '/assets/founders/2.jpg';
+const founder3 = '/assets/founders/3.jpg';
 
 export const BUCKET_NAME = 'farm-images';
 export const PRODUCT_BUCKET_NAME = 'product-images';
