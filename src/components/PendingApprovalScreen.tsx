@@ -1,6 +1,9 @@
 import React from 'react';
 import { User } from '../types';
 import { Clock, ShieldAlert, Phone, Home, RefreshCw, CheckCircle2 } from 'lucide-react';
+import founder1 from '../assets/founders/founder-1.jpg';
+import founder2 from '../assets/founders/founder-2.jpg';
+import founder3 from '../assets/founders/founder-3.jpg';
 
 interface PendingApprovalScreenProps {
   pendingUser?: User | null;
@@ -73,19 +76,28 @@ export const PendingApprovalScreen: React.FC<PendingApprovalScreenProps> = ({
           </div>
           <div className="space-y-1.5 text-emerald-100 font-medium text-[11px]">
             <div className="flex items-center justify-between p-2 bg-[#04140E] rounded-xl border border-[#C5A059]/15">
-              <span>👑 Neelam Ramachandraiah (Founder)</span>
+              <div className="flex items-center gap-2">
+                <img src={founder1} alt="Neelam Ramachandraiah" className="w-7 h-7 rounded-full object-cover border border-[#C5A059] shrink-0" />
+                <span>Neelam Ramachandraiah (Founder)</span>
+              </div>
               <a href="tel:+919502756669" className="text-[#C5A059] font-bold hover:underline flex items-center gap-1">
                 <Phone className="w-3 h-3" /> 9502756669
               </a>
             </div>
             <div className="flex items-center justify-between p-2 bg-[#04140E] rounded-xl border border-[#C5A059]/15">
-              <span>👑 Neelam Subbaiah (Founder)</span>
+              <div className="flex items-center gap-2">
+                <img src={founder2} alt="Neelam Subbaiah" className="w-7 h-7 rounded-full object-cover border border-[#C5A059] shrink-0" />
+                <span>Neelam Subbaiah (Founder)</span>
+              </div>
               <a href="tel:+918897288390" className="text-[#C5A059] font-bold hover:underline flex items-center gap-1">
                 <Phone className="w-3 h-3" /> 8897288390
               </a>
             </div>
             <div className="flex items-center justify-between p-2 bg-[#04140E] rounded-xl border border-[#C5A059]/15">
-              <span>👑 Neelam Sreenivasulu (Operator)</span>
+              <div className="flex items-center gap-2">
+                <img src={founder3} alt="Neelam Sreenivasulu" className="w-7 h-7 rounded-full object-cover border border-[#C5A059] shrink-0" />
+                <span>Neelam Sreenivasulu (Operator)</span>
+              </div>
               <a href="tel:+919392589010" className="text-[#C5A059] font-bold hover:underline flex items-center gap-1">
                 <Phone className="w-3 h-3" /> 9392589010
               </a>

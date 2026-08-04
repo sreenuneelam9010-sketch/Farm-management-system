@@ -19,6 +19,9 @@ import {
   PaymentSettings
 } from '../types';
 import { encryptText, decryptText } from './encryption';
+import founder1 from '../assets/founders/founder-1.jpg';
+import founder2 from '../assets/founders/founder-2.jpg';
+import founder3 from '../assets/founders/founder-3.jpg';
 
 export const AUTHORIZED_OWNERS = [
   { name: 'Neelam Ramachandraiah', mobile: '9502756669', email: 'admin@farm.com' },
@@ -38,7 +41,7 @@ const INITIAL_USERS: User[] = [
     createdAt: '2024-01-01',
     status: 'Active',
     isApproved: true,
-    avatarUrl: '/1.jpeg'
+    avatarUrl: founder1
   },
   {
     id: 'usr-admin-2',
@@ -51,7 +54,7 @@ const INITIAL_USERS: User[] = [
     createdAt: '2024-01-01',
     status: 'Active',
     isApproved: true,
-    avatarUrl: '/2.jpeg'
+    avatarUrl: founder2
   },
   {
     id: 'usr-admin-3',
@@ -64,7 +67,7 @@ const INITIAL_USERS: User[] = [
     createdAt: '2024-01-01',
     status: 'Active',
     isApproved: true,
-    avatarUrl: '/3.jpeg'
+    avatarUrl: founder3
   }
 ];
 

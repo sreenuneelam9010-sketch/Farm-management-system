@@ -1,6 +1,7 @@
 import React from 'react';
 import { User } from '../../types';
 import { X, Mail, Phone, MapPin, Calendar, Shield } from 'lucide-react';
+import { getFounderAvatarUrl } from '../../lib/storage';
 
 interface UserProfileModalProps {
   user: User | null;
@@ -29,11 +30,12 @@ export const UserProfileModal: React.FC<UserProfileModalProps> = ({ user, onClos
         {/* User Header */}
         <div className="flex items-center gap-4 border-b border-[#C5A059]/30 pb-4">
           <div className="w-16 h-16 rounded-full bg-slate-900 border-2 border-[#C5A059] shadow-inner flex items-center justify-center overflow-hidden shrink-0">
-            {user.avatarUrl ? (
-              <img src={user.avatarUrl} alt={user.fullName} referrerPolicy="no-referrer" className="w-full h-full object-cover" />
-            ) : (
-              <span className="text-xl font-black text-[#C5A059] font-mono">{initials}</span>
-            )}
+            <img
+              src={getFounderAvatarUrl(user.id, user.fullName, user.avatarUrl)}
+              alt={user.fullName}
+              referrerPolicy="no-referrer"
+              className="w-full h-full object-cover"
+            />
           </div>
 
           <div>

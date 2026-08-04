@@ -28,6 +28,9 @@ import { WorkerLeaveManager } from '../../components/admin/WorkerLeaveManager';
 import { CustomerMessagesManager } from '../../components/admin/CustomerMessagesManager';
 import { AdminProfile } from '../../components/profile/AdminProfile';
 import { UserProfileModal } from '../../components/profile/UserProfileModal';
+import founder1 from '../../assets/founders/founder-1.jpg';
+import founder2 from '../../assets/founders/founder-2.jpg';
+import founder3 from '../../assets/founders/founder-3.jpg';
 import { storageService } from '../../lib/storage';
 import { 
   exportAnimalsCSV, 
@@ -926,9 +929,11 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                 <div className="bg-[#04140E] p-4 rounded-2xl border border-[#C5A059]/25 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#062C1E] border border-[#C5A059]/30 text-[#C5A059] flex items-center justify-center font-bold text-sm">
-                    👑
-                  </div>
+                  <img
+                    src={founder1}
+                    alt="Neelam Ramachandraiah"
+                    className="w-12 h-12 rounded-full object-cover border border-[#C5A059] shadow shrink-0"
+                  />
                   <div>
                     <div className="font-serif-brand font-bold text-xs text-[#F2F2ED]">Neelam Ramachandraiah</div>
                     <div className="text-[11px] text-[#C5A059] font-mono">+91 9502756669</div>
@@ -936,9 +941,11 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                 </div>
 
                 <div className="bg-[#04140E] p-4 rounded-2xl border border-[#C5A059]/25 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#062C1E] border border-[#C5A059]/30 text-[#C5A059] flex items-center justify-center font-bold text-sm">
-                    👑
-                  </div>
+                  <img
+                    src={founder2}
+                    alt="Neelam Subbaiah"
+                    className="w-12 h-12 rounded-full object-cover border border-[#C5A059] shadow shrink-0"
+                  />
                   <div>
                     <div className="font-serif-brand font-bold text-xs text-[#F2F2ED]">Neelam Subbaiah</div>
                     <div className="text-[11px] text-[#C5A059] font-mono">+91 8897288390</div>
@@ -946,9 +953,11 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                 </div>
 
                 <div className="bg-[#04140E] p-4 rounded-2xl border border-[#C5A059]/25 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#062C1E] border border-[#C5A059]/30 text-[#C5A059] flex items-center justify-center font-bold text-sm">
-                    👑
-                  </div>
+                  <img
+                    src={founder3}
+                    alt="Neelam Sreenivasulu"
+                    className="w-12 h-12 rounded-full object-cover border border-[#C5A059] shadow shrink-0"
+                  />
                   <div>
                     <div className="font-serif-brand font-bold text-xs text-[#F2F2ED]">Sreenu Neelam (Owner)</div>
                     <div className="text-[11px] text-[#C5A059] font-mono">+91 9392589010</div>

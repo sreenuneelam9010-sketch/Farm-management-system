@@ -3,6 +3,7 @@ import { useAuth } from '../contexts/AuthContext';
 import { useCart } from '../contexts/CartContext';
 import { BrandLogo } from './BrandLogo';
 import { db } from '../lib/db';
+import { getFounderAvatarUrl } from '../lib/storage';
 import { 
   Phone, 
   ShoppingBag, 
@@ -240,21 +241,15 @@ export const Navbar: React.FC<NavbarProps> = ({
                 {/* User Profile Avatar Link */}
                 <button
                   onClick={() => handleNavClick('dashboard', 'profile')}
-                  className="relative p-0.5 rounded-full border-2 border-[#C5A059] hover:scale-105 transition-all cursor-pointer shadow-md"
+                  className="relative p-0.5 rounded-full border-2 border-[#C5A059] hover:scale-105 transition-all cursor-pointer shadow-md overflow-hidden"
                   title="View Profile"
                 >
-                  {user.avatarUrl ? (
-                    <img
-                      src={user.avatarUrl}
-                      alt={user.fullName}
-                      referrerPolicy="no-referrer"
-                      className="w-8 h-8 rounded-full object-cover"
-                    />
-                  ) : (
-                    <div className="w-8 h-8 rounded-full bg-[#062C1E] text-[#C5A059] font-black text-xs flex items-center justify-center font-mono">
-                      {user.fullName ? user.fullName.split(' ').map(n => n[0]).join('').substring(0, 2).toUpperCase() : 'US'}
-                    </div>
-                  )}
+                  <img
+                    src={getFounderAvatarUrl(user.id, user.fullName, user.avatarUrl)}
+                    alt={user.fullName}
+                    referrerPolicy="no-referrer"
+                    className="w-8 h-8 rounded-full object-cover"
+                  />
                 </button>
 
                 {/* User Role Badge */}

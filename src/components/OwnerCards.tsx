@@ -59,7 +59,7 @@ export const OwnerCards: React.FC = () => {
                       alt={founder.name}
                       loading="eager"
                       decoding="sync"
-                      onError={(e) => console.error('Image failed:', founder.image, e)}
+                      onError={() => console.error("Image failed:", founder.image)}
                       className="w-32 h-32 rounded-full object-cover border-2 border-[#C5A059] shadow-md group-hover:scale-105 transition-transform"
                     />
 

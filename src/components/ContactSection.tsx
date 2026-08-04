@@ -3,6 +3,7 @@ import { Phone, MessageSquare, MapPin, Send, ExternalLink, CheckCircle, Loader2,
 import { db, FarmInfo } from '../lib/db';
 import { supabase, isSupabaseConfigured } from '../lib/supabase';
 import { ContactMessage } from '../types';
+import founder1 from '../assets/founders/founder-1.jpg';
 
 export const ContactSection: React.FC = () => {
   const [farmInfo, setFarmInfo] = useState<FarmInfo>(() => db.getFarmInfo());
@@ -194,15 +195,15 @@ export const ContactSection: React.FC = () => {
               </h3>
 
               <div className="space-y-4">
-                <div className="bg-[#04140E]/80 p-5 rounded-2xl border border-[#C5A059]/40 shadow-inner">
-                  <div className="text-[10px] uppercase tracking-widest font-black text-[#C5A059]">Primary Contact</div>
-                  <div className="text-xl font-bold text-[#F2F2ED] mt-1">Neelam Ramachandraiah</div>
-                  <a href="tel:+919502756669" className="text-2xl font-extrabold text-[#C5A059] mt-1 block hover:underline">
-                    +91 9502756669
-                  </a>
-                  <p className="text-xs text-emerald-200/80 mt-1.5 leading-relaxed">
-                    Direct inquiries, livestock orders (Jodipi Sheep & Natu Kolla), green fodder & farm bookings
-                  </p>
+                <div className="bg-[#04140E]/80 p-5 rounded-2xl border border-[#C5A059]/40 shadow-inner flex items-center gap-4">
+                  <img src={founder1} alt="Neelam Ramachandraiah" className="w-14 h-14 rounded-full object-cover border-2 border-[#C5A059] shadow-md shrink-0" />
+                  <div>
+                    <div className="text-[10px] uppercase tracking-widest font-black text-[#C5A059]">Primary Contact</div>
+                    <div className="text-xl font-bold text-[#F2F2ED]">Neelam Ramachandraiah</div>
+                    <a href="tel:+919502756669" className="text-xl font-extrabold text-[#C5A059] block hover:underline">
+                      +91 9502756669
+                    </a>
+                  </div>
                 </div>
 
                 <div className="pt-2 grid grid-cols-1 sm:grid-cols-2 gap-3">

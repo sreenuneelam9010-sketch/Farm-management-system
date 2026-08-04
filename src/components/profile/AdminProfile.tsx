@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { User, Animal, Product, Order } from '../../types';
 import { db, FarmInfo, FarmDescriptionLog } from '../../lib/db';
-import { storageService } from '../../lib/storage';
+import { storageService, getFounderAvatarUrl } from '../../lib/storage';
 import { 
   ShieldCheck, 
   User as UserIcon, 
@@ -370,11 +370,12 @@ export const AdminProfile: React.FC<AdminProfileProps> = ({
         <div className="flex items-center gap-5 z-10">
           <div className="relative group">
             <div className="w-24 h-24 rounded-full bg-slate-900 border-2 border-[#C5A059] shadow-inner flex items-center justify-center overflow-hidden">
-              {personalForm.avatarUrl ? (
-                <img src={personalForm.avatarUrl} alt={personalForm.fullName} referrerPolicy="no-referrer" className="w-full h-full object-cover" />
-              ) : (
-                <span className="text-3xl font-black text-[#C5A059] font-mono">{initials}</span>
-              )}
+              <img
+                src={getFounderAvatarUrl(user.id, personalForm.fullName, personalForm.avatarUrl)}
+                alt={personalForm.fullName}
+                referrerPolicy="no-referrer"
+                className="w-full h-full object-cover"
+              />
             </div>
 
             <label className="absolute bottom-0 right-0 p-2 bg-[#C5A059] hover:bg-[#d4b06a] text-slate-950 rounded-full cursor-pointer shadow-lg transition-transform hover:scale-110">

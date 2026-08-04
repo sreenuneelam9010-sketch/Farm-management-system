@@ -321,11 +321,7 @@ export const ImageManager: React.FC = () => {
                   src={owner.src}
                   alt={owner.name}
                   className="w-28 h-28 rounded-full object-cover border-4 border-emerald-600 shadow-md"
-                  onError={(e) => {
-                    if ((e.currentTarget as HTMLImageElement).src !== owner.fallback) {
-                      (e.currentTarget as HTMLImageElement).src = owner.fallback;
-                    }
-                  }}
+                  onError={() => console.error("Image failed:", owner.src)}
                 />
               </div>
 
