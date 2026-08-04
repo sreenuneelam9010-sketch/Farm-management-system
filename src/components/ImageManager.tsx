@@ -311,9 +311,9 @@ export const ImageManager: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
-            { id: 'founder-1', name: 'Neelam Ramachandraiah', designation: 'Founder', phone: '+91 9502756669', src: '/assets/founders/founder-1.jpg', fallback: founder1 },
-            { id: 'founder-2', name: 'Neelam Subbaiah', designation: 'Founder', phone: '+91 8897288390', src: '/assets/founders/founder-2.jpg', fallback: founder2 },
-            { id: 'founder-3', name: 'Neelam Sreenivasulu', designation: 'Digital Operator', phone: '+91 9392589010', src: '/assets/founders/founder-3.jpg', fallback: founder3 }
+            { id: 'founder-1', name: 'Neelam Ramachandraiah', designation: 'Founder', phone: '+91 9502756669', src: founder1, fallback: founder1 },
+            { id: 'founder-2', name: 'Neelam Subbaiah', designation: 'Founder', phone: '+91 8897288390', src: founder2, fallback: founder2 },
+            { id: 'founder-3', name: 'Neelam Sreenivasulu', designation: 'Digital Operator', phone: '+91 9392589010', src: founder3, fallback: founder3 }
           ].map(owner => (
             <div key={owner.id} className="bg-slate-50 border border-slate-200 rounded-2xl p-5 flex flex-col items-center text-center justify-between space-y-4">
               <div className="relative">

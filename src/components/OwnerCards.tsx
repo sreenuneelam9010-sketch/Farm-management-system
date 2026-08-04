@@ -20,7 +20,7 @@ const FOUNDERS: FounderData[] = [
     name: 'Neelam Ramachandraiah',
     designation: 'Founder',
     phone: '+91 9502756669',
-    image: '/assets/founders/founder-1.jpg',
+    image: founder1,
     fallback: founder1,
   },
   {
@@ -28,7 +28,7 @@ const FOUNDERS: FounderData[] = [
     name: 'Neelam Subbaiah',
     designation: 'Founder',
     phone: '+91 8897288390',
-    image: '/assets/founders/founder-2.jpg',
+    image: founder2,
     fallback: founder2,
   },
   {
@@ -36,7 +36,7 @@ const FOUNDERS: FounderData[] = [
     name: 'Neelam Sreenivasulu',
     designation: 'Digital Operator',
     phone: '+91 9392589010',
-    image: '/assets/founders/founder-3.jpg',
+    image: founder3,
     fallback: founder3,
   },
 ];
